@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .lannister    {color: red;}
+    .baratheon     {color: orange;}
+    .stark    {color: silver;}
+    .tyrell   {color: green;}
+    .targaryen {color: white; background-color: black;}
+    .first {font-weight: bold;}
+    .important {text-decoration: underline;}
+  </style>
+</head>
+<body>
+  <p>
+你好，很高兴你能对我们公司感兴趣，这个是和我们的工作有关的一道有趣的题目，题目的故事背景也是现在很火的美剧《冰与火之歌》，题目具体的背景和描述都在下文的故事里。
+</p>
+<p>
+这里我们用英文描述了题目，不是为了提高逼格，只是作为一个前端开发者，大家都深知技术变革之快，时长需要学习最新的技术，而很多文档都只有英文版，我们不要求大家会说英语，只希望大家不畏惧英文资料。
+</p>
+<p>
+我相信聪明的你一定能够解决下面的问题的。^_^
+</p>
+<h2>
+Story:
+</h2>
+Mr. Sima Suyuan is a big fan of A Song of Ice and Fire as well as an exceptional frontend engineer. To help himself understand the content of the books more visually, he decides to annotate different part of the text with different styles. For example, he wants to annotate each major character names with the main color of his/her sigil and underline importance sentence.
+
+<p>
+For example, he wants to annotate the following text (under a div with id="root" ) with a bunch of queries embeded in the unfinished Javascript file
+</p>
+
+<div id='root'>During the War of the Five Kings, Robb Stark, also known as the Young Wolf, fought Lord Tywin Lannister in various battles in the Riverlands. In the mean time, Mace Tyrell declared for King Renly Baratheon even though his elder brother Stannis Baratheon had a better claim to the throne. Across the narrow sea, Daenerys Targaryen hatched three dragons and crowned herself Queen of Meereen.
+</div>
+
+<p>
+The queries are pairs of source range in original text and a CSS class that Mr Sima wants to annotate. e.g. following quries means Mr Sima wants to annotate "Robb Stark" with "start" class which uses his family color, and also wants to annotate "Robb" wiht class "first" so first name of characters could be emphasized.
+</p>
+
+<code>
+  [{start: 34, end: 44}, 'stark'],
+
+  [{start: 34, end: 38}, 'first'],
+</code>
+
+<p>
+All other style are defined in the CSS and all other queries are in the unifished Javascript file which Mr Sima just started.
+</p>
+
+<p>
+<span class=important>In addition, Mr Sima want to the algorithm to be able to handle queries dynamically</span>
+, so that, whenever an new queries comes in, we don't need to update the whole DOM tree.
+</p>
+<p>
+(hints: that also means you can't sort the queries, instead, you need to handle them one by one)
+</p>
+
+<p>
+Since Mr Sima is very busy recently, he wants you to help him finish the code that actually doing the annotation, if the code works correctly, the original text would looks exactly as follow:
+</p>
+
+<div id="root">During the War of the Five Kings,
+  <span class="stark">
+    <span class="first">Robb</span> Stark
+  </span>, also known as the Young Wolf, fought Lord
+  <span class="lannister">
+    <span class="first">Tywin</span> Lannister
+  </span> in various battles in the Riverlands. In the mean time,
+  <span class="tyrell">
+    <span class="first">
+      <span class="important">Mace</span>
+    </span>
+    <span class="important"> Tyrell</span>
+  </span>
+  <span class="important"> declared for King </span>
+  <span class="baratheon">
+    <span class="first">
+      <span class="important">Renly</span>
+    </span>
+    <span class="important"> Baratheon</span>
+  </span>
+  <span class="important"> even though his elder brother </span>
+  <span class="baratheon">
+    <span class="first">
+      <span class="important">Stannis</span></span>
+      <span class="important"> Baratheon</span></span>
+      <span class="important"> had a better claim to the throne</span>. Across the narrow sea,
+      <span class="targaryen">
+        <span class="first">Daenerys</span> Targaryen
+      </span> hatched three dragons and crowned herself Queen of Meereen.
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script>
+  var root = document.getElementById("root");
+</script>
+</body>
+</html>
